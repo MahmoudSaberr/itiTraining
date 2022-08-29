@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:iti_training/Models/Room/BankRoomsModel.dart';
 
-class ThirdTaskScreen extends StatefulWidget {
-  const ThirdTaskScreen({Key? key}) : super(key: key);
+class S2FirstTaskScreen extends StatefulWidget {
+  const S2FirstTaskScreen({Key? key}) : super(key: key);
 
   @override
-  State<ThirdTaskScreen> createState() => _ThirdTaskScreenState();
+  State<S2FirstTaskScreen> createState() => _ThirdTaskScreenState();
 }
 
-class _ThirdTaskScreenState extends State<ThirdTaskScreen> {
+class _ThirdTaskScreenState extends State<S2FirstTaskScreen> {
 
   var room = BankRoomModel();
   bool isNext = false;
