@@ -1,4 +1,4 @@
-import 'package:iti_training/Models/RoomModel.dart';
+import 'package:iti_training/Models/Room/RoomModel.dart';
 
 class BankRoomModel {
   List<NewRoom> rooms =[

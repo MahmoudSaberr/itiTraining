@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iti_training/Models/BankRoomsModel.dart';
+import 'package:iti_training/Models/Room/BankRoomsModel.dart';
 
 class ThirdTaskScreen extends StatefulWidget {
   const ThirdTaskScreen({Key? key}) : super(key: key);
