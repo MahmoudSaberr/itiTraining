@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iti_training/modules/section_2/second_task/s2_second_task_screen.dart';
+
+import '../../section_2&3/second_task/s2_second_task_screen.dart';
 
 class S2ThirdTaskScreen extends StatelessWidget {
   const S2ThirdTaskScreen({Key? key}) : super(key: key);

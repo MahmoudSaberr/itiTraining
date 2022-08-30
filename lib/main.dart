@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iti_training/modules/section_2/second_task/s2_second_task_screen.dart';
-import 'package:iti_training/modules/section_2/third_task/s2_third_task_screen.dart';
+import 'package:iti_training/modules/section_2&3/first_task/home_screen.dart';
 
-import 'modules/section_2/first_task/s2_first_task_screen.dart';
+import 'modules/section_2&3/first_task/room_details_screen.dart';
+import 'modules/section_2&3/first_task/s2_first_task_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const S2ThirdTaskScreen(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => HomeScreen(),
+        "room_details": (context) => RoomDetailsScreen(),
+        "room_list": (context) => S2FirstTaskScreen(),
+      },
     );
   }
 }

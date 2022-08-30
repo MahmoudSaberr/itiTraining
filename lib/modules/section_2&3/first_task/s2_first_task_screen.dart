@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:iti_training/Models/Room/BankRoomsModel.dart';
+import 'package:iti_training/Models/Room/RoomModel.dart';
+import 'package:iti_training/modules/section_2&3/first_task/home_screen.dart';
 
 class S2FirstTaskScreen extends StatefulWidget {
   const S2FirstTaskScreen({Key? key}) : super(key: key);
 
   @override
-  State<S2FirstTaskScreen> createState() => _ThirdTaskScreenState();
+  State<S2FirstTaskScreen> createState() => _S2FirstTaskScreen();
 }
 
-class _ThirdTaskScreenState extends State<S2FirstTaskScreen> {
+class _S2FirstTaskScreen extends State<S2FirstTaskScreen> {
 
   var room = BankRoomModel();
   bool isNext = false;
@@ -21,46 +23,65 @@ class _ThirdTaskScreenState extends State<S2FirstTaskScreen> {
       appBar:AppBar(
         title: Text("Room List"),
         centerTitle: true,
-        leading: Icon(Icons.arrow_back_ios),
+        leading: IconButton(
+          icon: Icon(
+              Icons.arrow_back_ios
+          ),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
+          },
+        ),
       ),
       body: ListView(
         children: <Widget>[
           Container(
             height: 230,
-            margin:EdgeInsets.all(8.0),
+            margin: EdgeInsets.all(8.0),
             child: Card(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8.0))),
-                  child: InkWell(
-                    onTap: () => print("tap"),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,  // add this
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8.0),
-                            topRight: Radius.circular(8.0),
-                          ),
-                          child: Image.network(
-                              '${room.rooms[firstIndex].image}',
-                              // width: 300,
-                              height: 150,
-                              fit:BoxFit.fill
-                          ),
-                        ),
-                        ListTile(
-                          title: Text(
-                            '${room.rooms[firstIndex].title}',
-                          ),
-                          subtitle: Text(
-                            '${room.rooms[firstIndex].subtitle}',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+              ),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    'room_details',
+                    arguments: NewRoom(
+                        image: room.rooms[firstIndex].image,
+                        title: room.rooms[firstIndex].title,
+                        subtitle: room.rooms[firstIndex].subtitle),
+                  );
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch, // add this
+                  children: <Widget>[
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0),
+                      ),
+                      child: Image.network(
+                          '${room.rooms[firstIndex].image}', // width: 300,
+                          height: 150,
+                          fit: BoxFit.fill),
                     ),
-                  ),
+                    ListTile(
+                      title: Text(
+                        '${room.rooms[firstIndex].title}',
+                      ),
+                      subtitle: Text(
+                        '${room.rooms[firstIndex].subtitle}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+            ),
           ),
           Container(
             height: 230,
@@ -68,8 +89,16 @@ class _ThirdTaskScreenState extends State<S2FirstTaskScreen> {
             child: Card(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8.0))),
               child: InkWell(
-                onTap: () => print("ciao"),
-                child: Column(
+                onTap: () {
+                  Navigator.pushNamed(
+                      context,
+                      'room_details',
+                    arguments: NewRoom(
+                        image: room.rooms[secondIndex].image,
+                        title: room.rooms[secondIndex].title,
+                        subtitle: room.rooms[secondIndex].subtitle),
+                  );
+                },                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,  // add this
                   children: <Widget>[
                     ClipRRect(
@@ -139,3 +168,9 @@ class _ThirdTaskScreenState extends State<S2FirstTaskScreen> {
     );
   }
 }
+/*
+*                 onTap: () {
+                  Navigator.pushNamed(
+                      context, 'room_details');
+                }
+* */

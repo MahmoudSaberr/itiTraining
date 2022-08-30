@@ -3,5 +3,5 @@ class NewRoom {
    late String title;
    late String subtitle;
 
-   NewRoom(this.image, this.title, this.subtitle) {}
+   NewRoom({required this.image,required this.title, required this.subtitle}) {}
 }
