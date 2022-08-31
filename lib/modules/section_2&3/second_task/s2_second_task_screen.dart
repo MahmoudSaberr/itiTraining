@@ -71,7 +71,6 @@ class S2SecondTaskScreen extends StatelessWidget {
                   Icons.send
               ),
             ),
-
           ),
         ],
       ),

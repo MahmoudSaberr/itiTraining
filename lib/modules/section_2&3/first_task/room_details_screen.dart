@@ -58,7 +58,6 @@ class RoomDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );
